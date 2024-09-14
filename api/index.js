@@ -3,11 +3,12 @@ const express = require('express');
 const { BloomFilter } = require('bloom-filters');
 const OpenAI = require('openai');
 const fs = require('fs');
+const cors = require('cors');
 const path = require('path');
 
 const app = express();
 const port = 3000;
-
+app.use(cors());
 app.use(express.json());
 
 const errorRate = 0.01;
