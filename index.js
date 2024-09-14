@@ -3,6 +3,7 @@ const express = require('express');
 const { BloomFilter } = require('bloom-filters');
 const OpenAI = require('openai')
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const port = 3000;
@@ -23,7 +24,7 @@ function normalizeURL(inputURL) {
   }
 }
 
-const urls = JSON.parse(fs.readFileSync('urls.json', 'utf-8'));
+const urls = JSON.parse(fs.readFileSync(path.join(__dirname, 'urls.json'), 'utf-8'));
 urls.forEach(inputURL => {
   const normalizedURL = normalizeURL(inputURL);
   bloomFilter.add(normalizedURL);

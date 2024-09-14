@@ -1,13 +1,19 @@
 {
     "version": 2,
-    "builds": [{
-      "src": "./index.js",
-      "use": "@vercel/node"
-    }],
-    "routes": [{"handle": "filesystem"},
+    "builds": [
+      {
+        "src": "./index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "handle": "filesystem" },
       {
         "src": "/.*",
         "dest": "index.js"
       }
-    ]
+    ],
+    "static": {
+      "include": ["urls.json"]
+    }
   }
