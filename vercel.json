@@ -1,15 +1,15 @@
 {
     "version": 2,
     "functions": {
-      "index.js": {
-        "maxDuration": 60 
+      "api/index.js": {
+        "maxDuration": 60
       }
     },
     "routes": [
       { "handle": "filesystem" },
       {
         "src": "/.*",
-        "dest": "index.js"
+        "dest": "api/index.js"
       }
     ]
   }
