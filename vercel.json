@@ -12,8 +12,5 @@
         "src": "/.*",
         "dest": "index.js"
       }
-    ],
-    "static": {
-      "include": ["urls.json"]
-    }
+    ]
   }
