@@ -102,7 +102,7 @@ Sender: ${sender}`;
 app.post('/check-url', (req, res) => {
   const { url: inputURL } = req.body;
   const normalizedURL = normalizeURL(inputURL);
-  const isPossiblySpam = bloomFilter.has(normalizedURL);
+  const isPossiblySpam = bloomFilter.has(normalizedURL) && !process.env.EXCLUSIONS.includes(normalizeURL);
   res.json({ isPossiblySpam, normalizedURL });
 });
 
